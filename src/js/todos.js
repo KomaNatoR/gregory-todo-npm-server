@@ -30,28 +30,31 @@ function hendleSubmit(e) {
     const payLoad = {
         text: value,
         isDone: false,
-        id: uuidv4(),
+        // id: uuidv4(),
         created: moment(new Date()).format('YYYY-MM-DD HH:mm'),
     };
 
     e.preventDefault();
-    addItem(payLoad);
-    createTodo(items);
-    render();
-    refs.form.reset();
+    createTodo(payLoad).then((newTodo) => {
+        addItem(newTodo);
+        render();
+        refs.form.reset();
+    });
 }
 
 function addItem (item) {
     items.push(item);
 };
 
-const toggleItem = (id) => { 
+const toggleItem = (id) => {
+    const item =items.find(item=>item.id===id);
+
     items = items.map(item =>
         item.id === id
         ? {...item, isDone: !item.isDone,} 
         : item
     );
-    updateTodo(items);
+    updateTodo(id,{...item,isDone: !item.isDone});
     console.log();
     // items = items.map(item =>
     //     item.isDone === true
@@ -90,9 +93,10 @@ const viewItem = (id) => {
 };
 const deleteItem = (id) => { 
     items = items.filter(item => item.id !== id);
-    deleteTodo(items);
-    render();
-    console.log(items, id);
+    deleteTodo(id).then(() => {
+        render();
+        console.log(items, id); 
+    });
 };
 
 function hendleListClick(e) {
