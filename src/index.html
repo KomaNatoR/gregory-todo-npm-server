@@ -1,14 +1,101 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDoS</title>
+  <style>
+    .form {
+      border-radius: 3px;
+      background-color: orange;
+      padding: 10px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      list-style: none;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid grey;
+      padding: 10px;
+      background-color: white;
+    }
+
+    .btn {
+      border-radius: 3px;
+      border-color: transparent;
+      /* color: white;     */
+    }
+
+    .add {
+      background-color: rgb(17, 194, 17);
+      color: white;
+    }
+
+    .delete {
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+      background-color: rgb(222, 0, 0);
+      color: white;
+    }
+
+    .view {
+      color: black;
+    }
+
+    .modal {
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 5px;
+    }
+    .news-loader {
+      display: none;
+      text-align: center;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body style="background-color: rgb(180, 180, 180)">
+  <div id="timer-1"></div>
+  <div id="timer-2"></div>
+  <div id="timer-3"></div>
+
+  <!-- Add gallery items to this list -->
+  <form class="form">
+    <label>
+      <span>Text</span>
+      <input type="text" name="text" placeholder="write your wish here!" />
+    </label>
+    <button class="btn add" type="submit">add task</button>
+  </form>
+
+  <ul class="list"></ul>
+
+  <hr />
+  <!-- <form class="news-form">
+    <label>
+      <span>Query</span>
+      <input type="text" name="query">
+    </label>
+    <button class="news-submit" type="submit">Search</button>
+  
+    <ul class="news-list"></ul>
+  </form>
+  
+  <p class="news-loader">loading...</p> -->
+
+  <script src="js/index.js" type="module"></script>
+</body>
+
 </html>
