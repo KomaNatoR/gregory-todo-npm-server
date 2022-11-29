@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "basiclightbox": "^5.0.4",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "moment": "^2.29.4",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
